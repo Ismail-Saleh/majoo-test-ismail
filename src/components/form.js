@@ -16,7 +16,7 @@ function FormData({title,description,status,handleChange,handleSubmit}) {
     <Form.Label>Title</Form.Label>
     <Form.Control type="text" placeholder="Enter Title" name="title" value = {title} onChange = {(event)=> handleChange(event)}/>
     <Form.Text className="text-muted">
-      Isikan nama yang ingin ditambah
+      Isikan title yang ingin ditambah
     </Form.Text>
   </Form.Group>
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component,useState } from 'react'
 import {Table,Button,Col, Form,ButtonGroup} from 'react-bootstrap'
 import momen from 'moment'
 
-    const table = ({status1,editPresed,hapusData})=> {
+    const table = ({status1,editPresed,hapusData,modalShow})=> {
     let jam =   status1.sort(function(a,b){return new Date(b.createdAt) - new Date(a.createdAt)})
     let filter = jam.filter(status => status.status == 0)
     return (
@@ -32,10 +32,10 @@ import momen from 'moment'
                 <td>{value.createdAt}</td>
                 <td>
                     <Form.Row>
-                        
                         <ButtonGroup aria-label="Basic example">
                         <Button variant = "warning" onClick = {()=>{editPresed(value.id,value.status)}}>Edit</Button>
                         <Button variant = "danger"onClick = {()=>{hapusData(value.id)}}>Hapus</Button>
+                        <Button variant = "primary" onClick = {()=>{modalShow(value.id)}}>Detail</Button>
                         </ButtonGroup>
                     </Form.Row>
                 </td>

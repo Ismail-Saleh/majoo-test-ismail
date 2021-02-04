@@ -2,7 +2,7 @@ import React from 'react'
 import {Table,Button,Col, Form,ButtonGroup} from 'react-bootstrap'
 
 
-    const table = ({status0,editPresed,hapusData})=> {
+    const table = ({status0,editPresed,hapusData,modalShow})=> {
 
         let jam =   status0.sort(function(a,b){return new Date(a.createdAt) - new Date(b.createdAt)})
         let filter = jam.filter(status => status.status == 1)
@@ -34,7 +34,9 @@ import {Table,Button,Col, Form,ButtonGroup} from 'react-bootstrap'
                     <Form.Row>
                     <ButtonGroup aria-label="Basic example">
                         <Button variant = "warning" onClick = {()=>{editPresed(status0.id,status0.status)}}>Edit</Button>
-                        <Button variant = "danger"onClick = {()=>{hapusData(status0.id)}}>Hapus</Button>
+                        <Button variant = "danger"onClick = {()=>{hapusData(status0.id)}} disabled>Hapus</Button>
+                        <Button variant = "primary" onClick = {()=>{modalShow(status0.id)}}>Detail</Button>
+
                         </ButtonGroup>
                     </Form.Row>
                 </td>
